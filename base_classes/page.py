@@ -41,7 +41,7 @@ class Page(object):
 
     def open(self):
         self.driver.get(self.location)
-        WebDriverWait(self.driver, 10).until(lambda driver: driver.current_url != self.url)
+        WebDriverWait(self.driver, 10).until(lambda d: d.current_url != self.url)
         self.driver.maximize_window()
 
     def wait_for_container(self):
