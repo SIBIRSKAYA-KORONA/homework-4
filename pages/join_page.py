@@ -17,4 +17,3 @@ class JoinPage(Page):
         self.join_form.set_password_repeat(passwordRepeat)
 
         self.join_form.submit()
-        

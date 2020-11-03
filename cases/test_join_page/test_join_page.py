@@ -6,6 +6,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 from pages.join_page import JoinPage
 
+
 class JoinPageTest(unittest.TestCase):
     join_page = None
 
@@ -34,5 +35,3 @@ class JoinPageTest(unittest.TestCase):
 
         nickname = self.join_page.main_header.get_nickname()
         self.assertEqual(login, nickname)
-
-
