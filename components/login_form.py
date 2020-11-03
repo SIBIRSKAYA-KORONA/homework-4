@@ -19,6 +19,7 @@ class LoginForm(Component):
 
     def submit(self):
         self.driver.find_element_by_xpath(self.SUBMIT).click()
+        WebDriverWait(self.driver, 10).until(lambda driver: driver.current_url != 'drello.works')
 
     def open_join(self):
         self.driver.find_element_by_xpath(self.JOIN_BUTTON).click()

@@ -1,4 +1,5 @@
 from base_classes.page import Page
+from components.profile_form import ProfileForm
 
 
 class ProfilePage(Page):
@@ -6,4 +7,4 @@ class ProfilePage(Page):
 
     @property
     def profile_form(self):
-        return LoginForm(self.driver)
+        return ProfileForm()
