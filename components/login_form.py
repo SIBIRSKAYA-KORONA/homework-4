@@ -9,7 +9,7 @@ class LoginForm(Component):
     SUBMIT = '//div[@id="submit_button"]'
     JOIN_BUTTON = '//a[text()="Регистрация"]'
     INPUT_ERROR = '//div[@id="inputError"]'
-    FORM = '//div[@class="auth-form-login"]'
+    CONTAINER = '//div[@class="auth-form-login"]'
 
     def set_login(self, login: str):
         self.driver.find_element_by_xpath(self.LOGIN).send_keys(login)

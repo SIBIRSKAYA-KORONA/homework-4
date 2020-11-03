@@ -4,4 +4,4 @@ from base_classes.component import Component
 
 
 class JoinForm(Component):
-    FORM = '//div[@class="auth-form-join"]'
+    CONTAINER = '//div[@class="auth-form-join"]'
