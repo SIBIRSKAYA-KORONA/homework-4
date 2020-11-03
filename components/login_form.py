@@ -21,7 +21,7 @@ class LoginForm(Component):
         self.driver.find_element_by_xpath(self.SUBMIT).click()
 
     def open_join(self):
-        self.driver.find_element_by_xpath(self.JOIN_BUTTON).click()   
+        self.driver.find_element_by_xpath(self.JOIN_BUTTON).click()
 
     def check_invalid_login(self):
         return WebDriverWait(self.driver, 0.5, 0.1).until(

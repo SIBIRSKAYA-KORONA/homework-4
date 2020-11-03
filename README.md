@@ -30,3 +30,7 @@
 
 - Запустить тесты из активированного окружения  
 `BROWSER=CHROME LOGIN=my_login PASSWORD=my_password python run_tests.py`
+
+# Дополнительная информация
+Не забывайте форматировать код перед коммитом  
+`autopep8 --in-place --max-line-length 120 -r .`
