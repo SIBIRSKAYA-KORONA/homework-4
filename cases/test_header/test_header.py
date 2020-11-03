@@ -21,7 +21,7 @@ class HeaderTest(unittest.TestCase):
 
         login_page = LoginPage(self.driver)
         login_page.open()
-        login_page.sign_in(os.environ.get('LOGIN'), os.environ.get('PASSWORD'))
+        login_page.login(os.environ.get('LOGIN'), os.environ.get('PASSWORD'))
 
     def tearDown(self):
         self.driver.quit()

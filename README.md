@@ -29,4 +29,4 @@
 `source env/bin/activate`
 
 - Запустить тесты из активированного окружения  
-`BROWSER=CHROME LOGIN=my_login PASSWORD=my_password python run_tests.py`
+`BROWSER=CHROME LOGIN=my_login PASSWORD=my_password REG_LOGIN=my_unique_login REG_PASSWORD=my_password python run_tests.py`

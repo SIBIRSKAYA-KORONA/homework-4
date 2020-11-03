@@ -18,7 +18,7 @@ class Page(object):
 
     @property
     def location(self):
-        return urllib.parse.urljoin(self.PROTOCOL, self.BASE_URL, self.PATH)
+        return urllib.parse.urljoin(self.PROTOCOL + self.BASE_URL, self.PATH)
 
     @property
     def url(self):
@@ -26,5 +26,5 @@ class Page(object):
 
     def open(self):
         self.driver.get(self.location)
-        WebDriverWait(self.driver, 10).until(lambda driver: driver.current_url != self.url)
+        WebDriverWait(self.driver, 10).until(lambda d: d.current_url != self.url)
         self.driver.maximize_window()

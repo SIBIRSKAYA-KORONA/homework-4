@@ -6,7 +6,6 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 from pages.login_page import LoginPage
 from pages.join_page import JoinPage
-from pages.boards_page import BoardsPage
 
 
 class LoginPageTest(unittest.TestCase):
@@ -30,7 +29,7 @@ class LoginPageTest(unittest.TestCase):
     def test_success_login(self):
         login = os.environ.get('LOGIN')
         password = os.environ.get('PASSWORD')
-        self.login_page.sign_in(login, password)
+        self.login_page.login(login, password)
 
         nickname = self.login_page.main_header.get_nickname()
         self.assertEqual(login, nickname)
@@ -38,7 +37,7 @@ class LoginPageTest(unittest.TestCase):
     def test_invalid_login(self):
         login = '123'
         password = '321'
-        self.login_page.sign_in(login, password)
+        self.login_page.login(login, password)
 
         is_visible = self.login_page.login_form.check_invalid_login()
         self.assertTrue(is_visible)
