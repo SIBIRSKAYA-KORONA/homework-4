@@ -3,6 +3,7 @@ import unittest
 import time
 
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 from components.boards.board_templates import BoardTemplates
@@ -54,9 +55,8 @@ class BoardsPageTest(unittest.TestCase):
         create_board_form.set_board_title(board_name)
         create_board_form.close()
 
-        board = self.boards_page.boards_list.get_board(board_name)
-
-        self.assertIsNone(board)
+        with self.assertRaises(TimeoutException):
+            self.boards_page.boards_list.get_board(board_name)
 
     def test_create_template_week_plan_board(self):
         board_templates = BoardTemplates(self.driver)
