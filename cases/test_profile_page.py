@@ -141,4 +141,4 @@ class ProfilePageTest(unittest.TestCase):
 
         is_change = self.profile_page.change_email(email)
 
-        self.assertFalse(is_change)
+        self.assertTrue(not is_change)
