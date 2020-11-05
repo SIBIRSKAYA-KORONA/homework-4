@@ -37,7 +37,6 @@ class ProfileForm(Component):
         self.driver.find_element_by_xpath(self.SURNAME).send_keys(surname)
 
     def set_avatar(self, path_to_avatar: str):
-        self.driver.find_element_by_xpath(self.SUBMIT_AVATAR).clear()
         self.driver.find_element_by_xpath(self.SUBMIT_AVATAR).send_keys(path_to_avatar)
 
     def set_old_password(self, old_password: str):
@@ -67,37 +66,49 @@ class ProfileForm(Component):
 
     def is_invalid_name(self):
         try:
-            return WebDriverWait(self.driver, 2).until(lambda d: len(d.find_element_by_xpath(self.NAME_ERROR).text) != 0)
+            return WebDriverWait(self.driver, 2).until(
+                lambda d: len(d.find_element_by_xpath(self.NAME_ERROR).text) != 0
+            )
         except TimeoutException:
             return False
 
     def is_invalid_surname(self):
         try:
-            return WebDriverWait(self.driver, 2).until(lambda d: len(d.find_element_by_xpath(self.SURNAME_ERROR).text) != 0)
+            return WebDriverWait(self.driver, 2).until(
+                lambda d: len(d.find_element_by_xpath(self.SURNAME_ERROR).text) != 0
+            )
         except TimeoutException:
             return False
 
     def is_invalid_avatar(self):
         try:
-            return WebDriverWait(self.driver, 3).until(lambda d: len(d.find_element_by_xpath(self.AVATAR_ERROR).text) != 0)
+            return WebDriverWait(self.driver, 3).until(
+                lambda d: len(d.find_element_by_xpath(self.AVATAR_ERROR).text) != 0
+            )
         except TimeoutException:
             return False
 
     def is_invalid_old_password(self):
         try:
-            return WebDriverWait(self.driver, 3).until(lambda d: len(d.find_element_by_xpath(self.OLD_PASSWORD_ERROR).text) != 0)
+            return WebDriverWait(self.driver, 3).until(
+                lambda d: len(d.find_element_by_xpath(self.OLD_PASSWORD_ERROR).text) != 0
+            )
         except TimeoutException:
             return False
 
     def is_invalid_new_password(self):
         try:
-            return WebDriverWait(self.driver, 2).until(lambda d: len(d.find_element_by_xpath(self.NEW_PASSWORD_ERROR).text) != 0)
+            return WebDriverWait(self.driver, 2).until(
+                lambda d: len(d.find_element_by_xpath(self.NEW_PASSWORD_ERROR).text) != 0
+            )
         except TimeoutException:
             return False
 
     def is_invalid_email(self):
         try:
-            return WebDriverWait(self.driver, 2).until(lambda d: len(d.find_element_by_xpath(self.EMAIL_ERROR).text) != 0)
+            return WebDriverWait(self.driver, 2).until(
+                lambda d: len(d.find_element_by_xpath(self.EMAIL_ERROR).text) != 0
+            )
         except TimeoutException:
             return False
 

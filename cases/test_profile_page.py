@@ -41,16 +41,6 @@ class ProfilePageTest(unittest.TestCase):
 
         self.profile_page.change_name(old_name)
 
-    def test_change_name_success(self):
-        old_name = self.profile_page.profile_form.get_name()
-        new_name = old_name + 'a'
-
-        self.profile_page.change_name(new_name)
-
-        self.assertEqual(new_name, self.profile_page.profile_form.get_name())
-
-        self.profile_page.change_name(old_name)
-
     def test_change_invalid_name(self):
         name = 'a'
 
@@ -78,23 +68,23 @@ class ProfilePageTest(unittest.TestCase):
     def test_change_avatar_success(self):
         old_link = self.profile_page.profile_form.get_avatar_link()
 
-        self.profile_page.change_avatar('files/ava1.jpg')
+        self.profile_page.change_avatar(os.path.abspath('../files/ava1.jpg'))
         new_link = self.profile_page.profile_form.get_avatar_link()
 
         self.assertNotEqual(old_link, new_link)
 
-        self.profile_page.change_avatar('files/ava2.jpg')
+        self.profile_page.change_avatar(os.path.abspath('../files/ava2.jpg'))
 
     def test_change_invalid_format_avatar(self):
         old_link = self.profile_page.profile_form.get_avatar_link()
 
-        self.profile_page.change_avatar('files/1.txt')
+        self.profile_page.change_avatar(os.path.abspath('../files/1.txt'))
         new_link = self.profile_page.profile_form.get_avatar_link()
 
     def test_change_invalid_size_avatar(self):
         old_link = self.profile_page.profile_form.get_avatar_link()
 
-        self.profile_page.change_avatar('files/ava_big.jpg')
+        self.profile_page.change_avatar(os.path.abspath('../files/ava_big.jpg'))
         new_link = self.profile_page.profile_form.get_avatar_link()
 
         self.assertEqual(old_link, new_link)
@@ -146,9 +136,9 @@ class ProfilePageTest(unittest.TestCase):
         if not empty_old_email:
             self.profile_page.change_email(old_email)
 
-    def test_change_email_success(self):
+    def test_change_email_fail(self):
         email = 'a'
 
         is_change = self.profile_page.change_email(email)
 
-        self.assertTrue(not is_change)
+        self.assertFalse(is_change)
