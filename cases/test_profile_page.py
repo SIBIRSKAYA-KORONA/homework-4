@@ -68,23 +68,23 @@ class ProfilePageTest(unittest.TestCase):
     def test_change_avatar_success(self):
         old_link = self.profile_page.profile_form.get_avatar_link()
 
-        self.profile_page.change_avatar(os.path.abspath('../files/ava1.jpg'))
+        self.profile_page.change_avatar(os.path.abspath('files/ava1.jpg'))
         new_link = self.profile_page.profile_form.get_avatar_link()
 
         self.assertNotEqual(old_link, new_link)
 
-        self.profile_page.change_avatar(os.path.abspath('../files/ava2.jpg'))
+        self.profile_page.change_avatar(os.path.abspath('files/ava2.jpg'))
 
     def test_change_invalid_format_avatar(self):
         old_link = self.profile_page.profile_form.get_avatar_link()
 
-        self.profile_page.change_avatar(os.path.abspath('../files/1.txt'))
+        self.profile_page.change_avatar(os.path.abspath('files/1.txt'))
         new_link = self.profile_page.profile_form.get_avatar_link()
 
     def test_change_invalid_size_avatar(self):
         old_link = self.profile_page.profile_form.get_avatar_link()
 
-        self.profile_page.change_avatar(os.path.abspath('../files/ava_big.jpg'))
+        self.profile_page.change_avatar(os.path.abspath('files/ava_big.jpg'))
         new_link = self.profile_page.profile_form.get_avatar_link()
 
         self.assertEqual(old_link, new_link)
